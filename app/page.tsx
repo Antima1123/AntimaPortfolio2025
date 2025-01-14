@@ -1,101 +1,114 @@
+"use client"
+import Link from "next/link";
+import { FaLinkedinIn } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+import { useState } from "react";
+import { ThemeToggle } from "@/components/themetoggle";
+import Blur from "@/components/blur";
+import { FaReact } from "react-icons/fa";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const startup = [
+  {
+    name: "Beatnik E-commrce",
+    des: "ready to use changelog for your SaaS",
+    link: "/"
+  },
+  {
+    name: "Boost E-commrce",
+    des: "ready to use changelog for your SaaS",
+    link: "/"
+  },
+  {
+    name: "Adbytehub",
+    des: "ready to use changelog for your SaaS",
+    link: "/"
+  },
+  {
+    name: "Kaira E-commrce",
+    des: "ready to use changelog for your SaaS",
+    link: "/"
+  }
+]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+const techstack = [
+  {
+    name: "Next.js",
+    des: "/next.svg",
+    link: "/"
+  },
+  {
+    name: "Tailwind",
+    des: "/tailwind.svg",
+    link: "/"
+  },
+  {
+    name: "Typescript",
+    des: "/typescript.svg",
+    link: "/"
+  },
+  {
+    name: "MongoDB",
+    des: "/mongo.svg",
+    link: "/"
+  },
+  {
+    name: "PostgreSQL",
+    des: "/postgresql.svg",
+    link: "/"
+  }
+]
+
+export default function Home() {
+  const [light, setLight] = useState(false);
+  const handleclick = ()=>{
+     setLight(!light);
+  }
+  return (
+    <div className="max-w-screen-md font-sans bg-background text-foreground mx-auto flex items-center justify-center mt-20">
+      <Blur/>
+      <div className="flex flex-col gap-8 w-full">
+          <div className="flex w-full justify-between items-center">
+           <div>
+              <h1 className="text-xl font-[600]">Hi, I am Antima Singh</h1>
+              <Link href="/" className=" ">antima1574@gmail.com</Link>
+           </div>
+            <div className="flex gap-4 items-center">
+              <ThemeToggle />
+              <Link href="https://www.linkedin.com/in/antima-singh-65964b263/" target="_blank"><FaLinkedinIn/></Link>
+              <Link href="https://x.com/antima_singh001" target="_blank"><BsTwitterX/></Link>
+              <Link href="https://github.com/Antima1123" target="_blank"><FaGithub/></Link>
+            </div>
+          </div>
+
+          <div className="leading-7 flex flex-col">
+              <p>I am a full-stack developer from Milkyway</p>
+              <p>Worked for new startsup, <Link href="/" className="hover:text-muted-foreground underline">Learn More</Link></p>
+              <p>write technical blogs on Orionix Tech and Medium</p>
+              <p>Let's talk how we can work together!</p>
+          </div>
+
+          <div>
+            <h1 className="text-xl font-[600] pb-4">Start Up Project</h1>
+            {startup.map((link,index)=>(
+              <p className="leading-7" key={index}>{index+1}{". "}{link.name}{" "}<b className="font-[200] ">{link.des}</b></p>
+            ))}
+          </div>
+
+          <div>
+            <h1 className="text-xl font-[600] pb-4">Tech Stack</h1>
+            {techstack.map((link,index)=>(
+              <div className="flex items-center gap-2" key={index}>
+                <Image className="" src={link.des} alt={link.name} width={20} height={20}/>
+                <p className="leading-7" key={index}>{link.name}</p>
+
+              </div>
+
+            ))}
+          </div>
+        
+      </div>
     </div>
   );
 }
