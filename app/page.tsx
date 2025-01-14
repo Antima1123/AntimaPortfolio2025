@@ -6,10 +6,14 @@ import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/themetoggle";
 import Blur from "@/components/blur";
-import { FaReact } from "react-icons/fa";
 import Image from "next/image";
 
 const startup = [
+  {
+    name: "Kaira ",
+    des: "E-commerce clothing website",
+    link: "https://wix-candles.vercel.app/"
+  },
   {
     name: "Beatnik E-commrce",
     des: "ready to use changelog for your SaaS",
@@ -25,11 +29,6 @@ const startup = [
     des: "ready to use changelog for your SaaS",
     link: "/"
   },
-  {
-    name: "Kaira E-commrce",
-    des: "ready to use changelog for your SaaS",
-    link: "/"
-  }
 ]
 
 const techstack = [
@@ -62,9 +61,6 @@ const techstack = [
 
 export default function Home() {
   const [light, setLight] = useState(false);
-  const handleclick = ()=>{
-     setLight(!light);
-  }
   return (
     <div className="max-w-screen-md font-sans bg-background text-foreground mx-auto flex items-center justify-center mt-20">
       <Blur/>
